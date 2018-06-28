@@ -22,13 +22,18 @@
         }
 
         #my_haha li h4 {
-            font-size: 22px;
+            font-size: 30px;
             font-weight: 900;
+            color: #000;
         }
 
-        #my_haha {
-            list-style: none;
+        #my_haha li h4 span{
+            font-size: 28px;
+            font-weight: 100px;
+            color: brown;
         }
+
+       
     </style>
 </div>
 <div id="my_haha">
@@ -49,7 +54,7 @@
                     console.log(data.status.message)
 
                     $.each(myjson, function (mya, myb) {
-                        mycontent += "<li><h4>笑话" + (mya + 1) + " ：”" + myb.content + "</h4> <img src=" + myb.url + ">" + "</li>";
+                        mycontent += "<li><h4>笑话" + (mya + 1) + " ：<span>" + myb.content + "</span></h4> <img src=" + myb.url + ">" + "</li>";
                         // mycontent += " <img src=" + myb.url + ">";
                         mycontent += "<hr>";
                     })
