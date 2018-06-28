@@ -49,7 +49,7 @@
                     console.log(data.status.message)
 
                     $.each(myjson, function (mya, myb) {
-                        mycontent += "<li><h4>笑话" + mya + 1 + " ：”" + myb.content + "</h4> <img src=" + myb.url + ">" + "</li>";
+                        mycontent += "<li><h4>笑话" + (mya + 1) + " ：”" + myb.content + "</h4> <img src=" + myb.url + ">" + "</li>";
                         // mycontent += " <img src=" + myb.url + ">";
                         mycontent += "<hr>";
                     })
