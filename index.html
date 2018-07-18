@@ -1,0 +1,72 @@
+<div>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        #my_haha h1 {
+            text-align: center;
+        }
+
+        #my_haha li {
+            width: 95%;
+            margin: 50px auto;
+            box-shadow: 0 3px 10px 0 rgba(91, 115, 146, .15);
+        }
+
+        #my_haha li h4 {
+            font-size: 30px;
+            font-weight: 900;
+            color: #000;
+        }
+
+        #my_haha li h4 span{
+            font-size: 28px;
+            font-weight: 100px;
+            color: brown;
+        }
+
+       
+    </style>
+</div>
+<div id="my_haha">
+    <h1>笑话图集</h1>
+    <ol id="my_box">
+    </ol>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "http://bird.ioliu.cn/joke/rand",
+                type: "get",
+                dataType: "json",
+                success: function (data) {
+                    var myjson = data.data;
+                    var mycontent = "";
+                    console.log(data)
+                    console.log(data.status.message)
+
+                    $.each(myjson, function (mya, myb) {
+                        mycontent += "<li><h4>笑话" + (mya + 1) + " ：<span>" + myb.content + "</span></h4> <img src=" + myb.url + ">" + "</li>";
+                        // mycontent += " <img src=" + myb.url + ">";
+                        mycontent += "<hr>";
+                    })
+
+                    $("#my_box").html(mycontent)
+                    // $("#name").html(data.data.cityName)
+
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+            })
+        })
+    </script>
+</div>
