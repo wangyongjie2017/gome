@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>cms自定义模板规范 | gomefe</title>
+  <meta name="author" content="gomefe">
+  
+  <meta name="description" content="存放规范、教程、分享、demo">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="cms自定义模板规范"/>
+  <meta property="og:site_name" content="gomefe"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="gomefe" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/">gomefe</a><span class="split"></span><span class="title">cms自定义模板规范</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2016-02-29</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
+  
+
+  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
+
+	  <!-- content -->
+	  <h1 id="cms自定义模板规范"><a href="#cms自定义模板规范" class="headerlink" title="cms自定义模板规范"></a>cms自定义模板规范</h1><!--### Author: [赵晔](https://github.com/JALBAA)-->
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自定义模板，由于其灵活度过高，在此对其作出一定的限制。</p>
+<p><strong>核心思想</strong> 是将页面中业务逻辑方法分离，防止cms的自定义模板同cms静态页系统耦合过高，导致无法适配其他宿主环境，即 <strong>自定义模板数据化</strong> 。</p>
+<h2 id="显隐控制"><a href="#显隐控制" class="headerlink" title="显隐控制"></a>显隐控制</h2><h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><h4 id="强制-在公共头模板，通过调用appView方法，UA判断宿主环境，根据不同宿主环境，设置css样式并插入dom"><a href="#强制-在公共头模板，通过调用appView方法，UA判断宿主环境，根据不同宿主环境，设置css样式并插入dom" class="headerlink" title="[强制] 在公共头模板，通过调用appView方法，UA判断宿主环境，根据不同宿主环境，设置css样式并插入dom"></a>[强制] 在公共头模板，通过调用appView方法，UA判断宿主环境，根据不同宿主环境，设置css样式并插入dom</h4><h4 id="强制-原则上不再增加新的对应关系"><a href="#强制-原则上不再增加新的对应关系" class="headerlink" title="[强制] 原则上不再增加新的对应关系"></a>[强制] 原则上不再增加新的对应关系</h4><h3 id="对应关系"><a href="#对应关系" class="headerlink" title="对应关系"></a>对应关系</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">宿主环境</th>
+<th style="text-align:left">对应css类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">普通浏览器</td>
+<td style="text-align:left">wapshow</td>
+</tr>
+<tr>
+<td style="text-align:left">国美在线app客户端</td>
+<td style="text-align:left">appshow</td>
+</tr>
+<tr>
+<td style="text-align:left">app版本控制</td>
+<td style="text-align:left">gte[版本号](<em>解释：小于某版本则显示</em>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"wapshow"</span>&gt;</span></span><br><span class="line">普通浏览器显示的部分</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"appshow"</span>&gt;</span></span><br><span class="line">国美在线app客户端显示的部分</span><br><span class="line">默认显示</span><br><span class="line">或有版本控制时，用来匹配最新版本</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"appshow lte30"</span>&gt;</span></span><br><span class="line">国美在线app客户端显示的部分</span><br><span class="line">版本小于30大于20</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"appshow lte20"</span>&gt;</span></span><br><span class="line">国美在线app客户端显示的部分</span><br><span class="line">版本小于20大于10</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"appshow lte10"</span>&gt;</span></span><br><span class="line">国美在线app客户端显示的部分</span><br><span class="line">版本小于10大于1</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>详情参照<a href="/2016/02/29/cms前端代码规范/#自定义模板">cms前端代码规范#自定义模板</a></p>
+<h2 id="cms数据挂载规则"><a href="#cms数据挂载规则" class="headerlink" title="cms数据挂载规则"></a>cms数据挂载规则</h2><p>详情参照<a href="/2016/02/29/cms前端代码规范/#数据挂载规则">cms前端代码规范#数据挂载规则</a></p>
+<h2 id="跳转规则"><a href="#跳转规则" class="headerlink" title="跳转规则"></a>跳转规则</h2><h3 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h3><h4 id="强制-新版本须使用scheme方案"><a href="#强制-新版本须使用scheme方案" class="headerlink" title="[强制]新版本须使用scheme方案"></a>[强制]新版本须使用scheme方案</h4><h4 id="强制-旧版本，需使用data-hook代替方法调用，对页面和宿主环境进行分离"><a href="#强制-旧版本，需使用data-hook代替方法调用，对页面和宿主环境进行分离" class="headerlink" title="[强制]旧版本，需使用data-hook代替方法调用，对页面和宿主环境进行分离"></a>[强制]旧版本，需使用data-hook代替方法调用，对页面和宿主环境进行分离</h4><h3 id="代码示例-1"><a href="#代码示例-1" class="headerlink" title="代码示例"></a>代码示例</h3><p>标签中挂载数据，标识跳转模块和对应参数<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"appshow"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--商品详情--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">data-cms-jump</span>=<span class="value">"goods"</span> <span class="attribute">data-cms-params</span>=<span class="value">"&#123;'type':0,'params':'1122450299&amp;No=9133681941&amp;skipType=2'&#125;"</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--金融--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">data-cms-jump</span>=<span class="value">"finance"</span> <span class="attribute">data-cms-params</span>=<span class="value">"&#123;type:'meiyingbaohome'&#125;"</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>基于不同的宿主环境，对相同的数据结构，可以进行不同的处理，<br>比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cms静态页</span></span><br><span class="line"><span class="comment">//xxx.js</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//商品的跳转</span></span><br><span class="line">    $(<span class="string">'[data-cms-jump="goods"]'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse($(<span class="keyword">this</span>).data(<span class="string">'cms-href'</span>))</span><br><span class="line">        <span class="comment">//操作bridge跳转</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">//金融产品的跳转</span></span><br><span class="line">    $(<span class="string">'[data-cms-jump="finance"]'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse($(<span class="keyword">this</span>).data(<span class="string">'cms-href'</span>))</span><br><span class="line">        <span class="comment">//操作bridge跳转</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>混合app会预解析模板,拼接成scheme</p>
+<h2 id="领券"><a href="#领券" class="headerlink" title="领券"></a>领券</h2><h3 id="解释-2"><a href="#解释-2" class="headerlink" title="解释"></a>解释</h3><h4 id="强制-需使用data-hook代替方法调用，对页面和宿主环境进行分离"><a href="#强制-需使用data-hook代替方法调用，对页面和宿主环境进行分离" class="headerlink" title="[强制]需使用data-hook代替方法调用，对页面和宿主环境进行分离"></a>[强制]需使用data-hook代替方法调用，对页面和宿主环境进行分离</h4><h3 id="代码示例-2"><a href="#代码示例-2" class="headerlink" title="代码示例"></a>代码示例</h3><p>标签中挂载数据，标识模块名称和对应参数<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-cms-coupon</span> <span class="attribute">data-cms-params</span>=<span class="value">"&#123;'key':'afal3d5f52jwo7ef9ij1woe99if5jweofijwoefwmfeowfmw'&#125;"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>cms静态页脚本<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">'[data-cms-coupon]'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//领券</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>混合app已经做另行处理</p>
+	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+			
+		
+	
+		
+	
+		
+			
+			
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+	
+		<li class="prev"><a href="/2016/02/29/cms前端代码规范/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next disabled"><a>next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2016 gomefe
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.tableofcontents.min.js"></script>
+<script src="/js/tocgenerator.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>

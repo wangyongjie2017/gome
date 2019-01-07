@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>浏览器渲染原理 | gomefe</title>
+  <meta name="author" content="gomefe">
+  
+  <meta name="description" content="存放规范、教程、分享、demo">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="浏览器渲染原理"/>
+  <meta property="og:site_name" content="gomefe"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="gomefe" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/">gomefe</a><span class="split"></span><span class="title">浏览器渲染原理</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2016-02-22</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  
+
+  
+	<div class="col-md-12">
+	  
+
+	  <!-- content -->
+	  <h1 id="浏览器渲染"><a href="#浏览器渲染" class="headerlink" title="浏览器渲染"></a>浏览器渲染</h1><h2 id="页面加载过程"><a href="#页面加载过程" class="headerlink" title="页面加载过程"></a>页面加载过程</h2><p>浏览器的组建构成<br><img src="http://image60.360doc.com/DownloadImg/2013/04/1211/31581797_1.png" alt="此处输入图片的描述"><br>在最底层的三个组件分别是网络，UI后端和js解释器。作用如下：</p>
+<ol>
+<li><p>网络－ 用来完成网络调用，例如http请求，它具有平台无关的接口，可以在不同平台上工作</p>
+</li>
+<li><p>UI 后端－ 用来绘制类似组合选择框及对话框等基本组件，具有不特定于某个平台的通用接口，底层使用操作系统的用户接口</p>
+</li>
+<li><p>JS解释器－ 用来解释执行JS代码</p>
+</li>
+</ol>
+<p>我们访问一个站点的时候浏览器会先检查自身缓存，在没有缓存的情况下，浏览器会按照以下步骤加载页面：<br>结合以下代码段了解页面加载的过程</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span> <span class="attribute">runat</span>=<span class="value">"server"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"../css/css.css"</span> <span class="attribute">rel</span>=<span class="value">"Stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"images/test.jpg"</span> <span class="attribute">alt</span>=<span class="value">"示例图片"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/js.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>客户端浏览器开始从用户向服务器发出请求，服务器响应的将如上的HTML返回给请求的客户端浏览器中。</li>
+<li>加载从<code>&lt;html&gt;</code>标签开始，并发现<head>标签内有个外部样式文件要加载<code>&lt;link href=&quot;../css/css.css&quot;rel=&quot;Stylesheet&quot;type=&quot;text/css&quot;/&gt;</code></head></li>
+<li>这时客户端浏览器又向服务器发出一个请求加载css.css文件，服务器响应。</li>
+<li>此时客户端浏览器继续加载html文件里<body>里的标签，在css.css文件加载完后，同时开始渲染页面。</body></li>
+<li>客户端浏览器在<code>&lt;body&gt;</code>里的标签中发现一个<img>标签并且引用了服务器进而的一张名为test.jpg的图片.客户端浏 览器又向服务器发出一次请求。而浏览器不会因为此时正在加载<img>标签里的图片而停止等待图片加载完，浏览器继续渲染还未完成的部分。</li>
+<li><img>标签里的图片加载完了，则要显示出来，同时图片会占有一定的面积，又会影响到后面的布局，浏览器不得不又回来<strong>重新渲染</strong>一次这部分。</li>
+<li>总算把body里的标签加载及渲染完后，浏览器又发现了一段代码<code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/js.js&quot;&gt;&lt;/script&gt;</code></li>
+<li>浏览器又立刻向服务器发出请求加载js.js文件，服务器响应。</li>
+<li>浏览器又在js.js文件中发现了一段代码是让<div>标签隐藏的代码，此时浏览器又要重新去渲染被隐藏的<div>部分。</div></div></li>
+<li>最后到浏览器发现了为止。</li>
+</ol>
+<hr>
+<h2 id="浏览器的repaint-重绘-和reflow（回流）"><a href="#浏览器的repaint-重绘-和reflow（回流）" class="headerlink" title="浏览器的repaint(重绘)和reflow（回流）"></a>浏览器的repaint(重绘)和reflow（回流）</h2><ul>
+<li><strong>repaint(重绘)是在一个元素的外观被改变，但没有改变布局的情况下发生。——如果只是改变某个元素的背景色、文字颜色、边框颜色等等不影响它周围或内部布局的属性，将只会引起浏览器repaint。</strong></li>
+<li><strong>reflow（回流）：浏览器发现某个部分发生了点变化影响了布局，需要倒回去重新渲染，这个回退的过程就叫回流</strong>。</li>
+</ul>
+<h3 id="什么情况下会触发重绘或重排"><a href="#什么情况下会触发重绘或重排" class="headerlink" title="什么情况下会触发重绘或重排"></a>什么情况下会触发重绘或重排</h3><ul>
+<li>增加或删除DOM节点</li>
+<li>设置 display: none;（重排并重绘） 或者 visibility: hidden（只有重排）</li>
+<li>移动页面中的元素</li>
+<li>增加或者修改样式</li>
+<li>用户 改变窗口大小，滚动页面等<h3 id="怎样优化reflow"><a href="#怎样优化reflow" class="headerlink" title="怎样优化reflow"></a>怎样优化reflow</h3></li>
+<li>用到图片时，给图片设置宽度和高度，这样浏览器就知道了图片的占位面积，在载入图片前就预留好了位置；</li>
+<li>避免逐项更改样式。最好一次性更改style属性，或者将样式列表定义为class并一次性更改class属性。</li>
+<li>避免循环操作DOM。创建一个documentFragment或div，在它上面应用所有DOM操作，最后再把它添加到window.document。也可以在一个display:none的元素上进行操作，最终把它显示出来。因为display:none上的DOM操作不会引发回流和重绘。</li>
+<li>避免循环读取offsetLeft等属性。在循环之前把它们存起来。</li>
+<li>绝对定位具有复杂动画的元素。绝对定位使它脱离文档流，否则会引起父元素及后续元素大量的回流。</li>
+</ul>
+<h2 id="浏览器对CSS的匹配原理"><a href="#浏览器对CSS的匹配原理" class="headerlink" title="浏览器对CSS的匹配原理"></a>浏览器对CSS的匹配原理</h2><p> <strong>浏览器CSS匹配是从右到左进行查找。</strong><br> 比如  DIV#divBox p span.red{color:red;}，浏览器的查找顺序如下：先查找html中所有class=’red’的span元素，找到后，再查找其父辈元 素中是否有p元素，再判断p的父元素中是否有id为 divBox的div元素，如果都存在则CSS匹配上。<br>    浏览器从右到左进行查找的好处是为了尽早过滤掉一些无关的样式规则和元素。</p>
+<h2 id="浏览器中javascript的执行过程"><a href="#浏览器中javascript的执行过程" class="headerlink" title="浏览器中javascript的执行过程"></a>浏览器中javascript的执行过程</h2><p>大多数浏览器（比如chrome）让一个单线程共用于执行javascrip和更新用户界面。这个线程通常被称为“浏览器UI线程”， 每个时刻只能执行其中一种操作，这意味着当Javascript代码正在执行时用户界面无法响应输入，反之亦然。这样做是因为javascript代码的作用就是操作DOM更新用户界面，用同一个线程来做负责这两件事情可以更高效</p>
+<p><strong>当 引用了JS的时候，浏览器发送1个jsrequest就会一直等待该request的返回。因为浏览器需要1个稳定的DOM树结构，而JS中很有可能有代 码直接改变了DOM树结构，比如使用 document.write 或 appendChild,甚至是直接使用的location.href进行跳转，浏览器为了防止出现JS修改DOM树，需要重新构建DOM树的情况，所以 就会阻塞其他的下载和呈现.</strong></p>
+<p><strong>一般而言，<code>&lt;script&gt;</code>标签每次出现都会霸道地让页面等待脚本的解析和执行，无论当前的Javascript是内嵌的还是包含了外链文件，页面的下载和渲染都必须停下来等待脚本执行完成。</strong>这在页面的生存周期中是必要的，因为脚本执行过程中可能修改页面内容，一个典型的例子就是在页面中使用document.write()。</p>
+<p>当javascript代码是内嵌在html里面时，这点还是比较容易理解，但当javascript是外链文件时稍微有点负载，因为存在一个加载过程，而且浏览器加载好这个js文件之后往往还对其缓存。</p>
+<hr>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>CSS:<br>　　1. 合并多个css文件，以减少http的请求个数，以减少服务器端的压力。<br>　　2. 使用外部css文件。主要原因是浏览器缓存，以减少http请求。<br>　　3. 放在页面顶部（head标签处），防止出现“无样式内容的闪烁”。<br>　　<br>JavaScript：<br>　　1. 把脚本进行压缩（移除不必要的字符，注释以及空行）。<br>　　2. 对部分js文件进行合并，以减少http的请求个数，以减少服务器端的压力——但是要量力而行，因为如果你的js文件很大，下载很慢的话，很多功能都不能正常进行，我们可以按照业务进行合并。<br>　　3. 使用外部js文件。因为现在很多浏览器都有缓存，明显会减少http请求数。<br>　　4. 将脚本放在页面底部。先让用户看到内容，然后再加载js，这样用户会感觉页面加载速度很快。</p>
+<p>分享链接<a href="http://www.cnblogs.com/smjack/archive/2008/08/25/1275372.html" target="_blank" rel="external">此处输入链接的描述</a>如何提高网站访问速度</p>
+<h2 id="多提意见，继续更新优化…"><a href="#多提意见，继续更新优化…" class="headerlink" title="多提意见，继续更新优化…"></a>多提意见，继续更新优化…</h2>	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+			
+			
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next disabled"><a>next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2016 gomefe
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.tableofcontents.min.js"></script>
+<script src="/js/tocgenerator.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>

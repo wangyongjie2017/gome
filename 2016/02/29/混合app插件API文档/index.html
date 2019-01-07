@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>混合app插件API文档 | gomefe</title>
+  <meta name="author" content="gomefe">
+  
+  <meta name="description" content="存放规范、教程、分享、demo">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="混合app插件API文档"/>
+  <meta property="og:site_name" content="gomefe"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="gomefe" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/">gomefe</a><span class="split"></span><span class="title">混合app插件API文档</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2016-02-29</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  
+
+  
+	<div class="col-md-12">
+	  
+
+	  <!-- content -->
+	  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此文档旨在描述国美在线混合app中，app端和h5端的插件调用接口</p>
+<h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><h3 id="gome-app-nativeLogin"><a href="#gome-app-nativeLogin" class="headerlink" title="gome-app-nativeLogin"></a>gome-app-nativeLogin</h3><h4 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h4><h5 id="navigator-gome-app-nativeLogin-jumpToNativeLogin"><a href="#navigator-gome-app-nativeLogin-jumpToNativeLogin" class="headerlink" title="navigator.gome.app.nativeLogin.jumpToNativeLogin"></a>navigator.gome.app.nativeLogin.jumpToNativeLogin</h5><h5 id="navigator-gome-app-nativeLogin-jumpToNativeLogout"><a href="#navigator-gome-app-nativeLogin-jumpToNativeLogout" class="headerlink" title="navigator.gome.app.nativeLogin.jumpToNativeLogout"></a>navigator.gome.app.nativeLogin.jumpToNativeLogout</h5><h3 id="gome-util-nativeRequest"><a href="#gome-util-nativeRequest" class="headerlink" title="gome-util-nativeRequest"></a>gome-util-nativeRequest</h3><h4 id="navigator-gome-util-nativeRequest-sendNativeRequest"><a href="#navigator-gome-util-nativeRequest-sendNativeRequest" class="headerlink" title="navigator.gome.util.nativeRequest.sendNativeRequest"></a>navigator.gome.util.nativeRequest.sendNativeRequest</h4><h4 id="navigator-gome-util-nativeRequest-sendNativeLayoutRequest"><a href="#navigator-gome-util-nativeRequest-sendNativeLayoutRequest" class="headerlink" title="navigator.gome.util.nativeRequest.sendNativeLayoutRequest"></a>navigator.gome.util.nativeRequest.sendNativeLayoutRequest</h4><h3 id="gome-util-nativeUtils"><a href="#gome-util-nativeUtils" class="headerlink" title="gome-util-nativeUtils"></a>gome-util-nativeUtils</h3><h4 id="navigator-gome-util-nativeUtils-getAppEnvironment"><a href="#navigator-gome-util-nativeUtils-getAppEnvironment" class="headerlink" title="navigator.gome.util.nativeUtils.getAppEnvironment"></a>navigator.gome.util.nativeUtils.getAppEnvironment</h4><h4 id="navigator-gome-util-nativeUtils-isLogin"><a href="#navigator-gome-util-nativeUtils-isLogin" class="headerlink" title="navigator.gome.util.nativeUtils.isLogin"></a>navigator.gome.util.nativeUtils.isLogin</h4><h4 id="navigator-gome-util-nativeUtils-jumpExternalLink"><a href="#navigator-gome-util-nativeUtils-jumpExternalLink" class="headerlink" title="navigator.gome.util.nativeUtils.jumpExternalLink"></a>navigator.gome.util.nativeUtils.jumpExternalLink</h4><h4 id="navigator-gome-util-nativeUtils-showToast"><a href="#navigator-gome-util-nativeUtils-showToast" class="headerlink" title="navigator.gome.util.nativeUtils.showToast"></a>navigator.gome.util.nativeUtils.showToast</h4><h4 id="navigator-gome-util-nativeUtils-showTitle"><a href="#navigator-gome-util-nativeUtils-showTitle" class="headerlink" title="navigator.gome.util.nativeUtils.showTitle"></a>navigator.gome.util.nativeUtils.showTitle</h4>	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+	
+		
+			
+			
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next disabled"><a>next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2016 gomefe
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.tableofcontents.min.js"></script>
+<script src="/js/tocgenerator.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>

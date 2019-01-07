@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>cms前端代码规范 | gomefe</title>
+  <meta name="author" content="gomefe">
+  
+  <meta name="description" content="存放规范、教程、分享、demo">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="cms前端代码规范"/>
+  <meta property="og:site_name" content="gomefe"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="gomefe" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/">gomefe</a><span class="split"></span><span class="title">cms前端代码规范</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2016-02-29</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
+  
+
+  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
+
+	  <!-- content -->
+	  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文档旨在协助cms后端人员良好使用无线前端组所提供的开发资源。</p>
+<h2 id="资源引用规则"><a href="#资源引用规则" class="headerlink" title="资源引用规则"></a>资源引用规则</h2><h3 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h3><h4 id="强制-css文件须在html的head标签中引用"><a href="#强制-css文件须在html的head标签中引用" class="headerlink" title="[强制]css文件须在html的head标签中引用"></a>[强制]css文件须在html的head标签中引用</h4><p>示例:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheets"</span> <span class="attribute">href</span>=<span class="value">"foo.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="建议-少量补充样式，直接以-lt-style-gt-标签形式插入-lt-head-gt-标签中"><a href="#建议-少量补充样式，直接以-lt-style-gt-标签形式插入-lt-head-gt-标签中" class="headerlink" title="[建议]少量补充样式，直接以&lt;style&gt;标签形式插入&lt;head&gt;标签中"></a>[建议]少量补充样式，直接以<code>&lt;style&gt;</code>标签形式插入<code>&lt;head&gt;</code>标签中</h4><p>示例:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*foo.css*/</span></span><br><span class="line"><span class="comment">/*只有两句话*/</span></span><br><span class="line"><span class="class">.appshow</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.wapshow</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--bad--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheets"</span> <span class="attribute">href</span>=<span class="value">"foo.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--good--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">        <span class="comment">/*只有两句话，直接嵌入head*/</span></span><br><span class="line">        <span class="class">.appshow</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.wapshow</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="强制-js文件全部置于所有DOM之后-lt-body-gt-标签之前引用"><a href="#强制-js文件全部置于所有DOM之后-lt-body-gt-标签之前引用" class="headerlink" title="[强制]js文件全部置于所有DOM之后&lt;/body&gt;标签之前引用"></a>[强制]js文件全部置于所有<code>DOM</code>之后<code>&lt;/body&gt;</code>标签之前引用</h4><p>示例:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--bad--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"foo.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"bar.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--good--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"foo.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"bar.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="类库引用"><a href="#类库引用" class="headerlink" title="类库引用"></a>类库引用</h3><h4 id="强制-css引用base-css及ui组建类库gomeui-css-尚未提交"><a href="#强制-css引用base-css及ui组建类库gomeui-css-尚未提交" class="headerlink" title="[强制]css引用base.css及ui组建类库gomeui.css(尚未提交)"></a>[强制]css引用base.css及ui组建类库gomeui.css(尚未提交)</h4><h4 id="强制-js引用gomeui-js-尚未提交"><a href="#强制-js引用gomeui-js-尚未提交" class="headerlink" title="[强制]js引用gomeui.js(尚未提交)"></a>[强制]js引用gomeui.js(尚未提交)</h4><h2 id="内嵌脚本"><a href="#内嵌脚本" class="headerlink" title="内嵌脚本"></a>内嵌脚本</h2><h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><h4 id="强制-公共头-lt-head-gt-中嵌入平滑rem脚本"><a href="#强制-公共头-lt-head-gt-中嵌入平滑rem脚本" class="headerlink" title="[强制]公共头&lt;head&gt;中嵌入平滑rem脚本"></a>[强制]公共头<code>&lt;head&gt;</code>中嵌入平滑rem脚本</h4><p>代码如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> width = <span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).offsetWidth;</span><br><span class="line"><span class="keyword">var</span> delta =  (<span class="number">640</span>-<span class="number">320</span>) / (<span class="number">20</span>-<span class="number">10</span>);</span><br><span class="line"><span class="keyword">var</span> fontSize = (width - <span class="number">320</span>) / delta + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span>(width &lt;= <span class="number">320</span>)&#123;</span><br><span class="line">    fontSize = <span class="number">10</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(width &gt;=<span class="number">640</span>)&#123;</span><br><span class="line">    fontSize = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).style.fontSize = fontSize+<span class="string">'px'</span>;</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).offsetWidth;</span><br><span class="line">    <span class="keyword">var</span> delta =  (<span class="number">640</span>-<span class="number">320</span>) / (<span class="number">20</span>-<span class="number">10</span>);</span><br><span class="line">    <span class="keyword">var</span> fontSize = (width - <span class="number">320</span>) / delta + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(width &lt;= <span class="number">320</span>)&#123;</span><br><span class="line">        fontSize = <span class="number">10</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(width &gt;=<span class="number">640</span>)&#123;</span><br><span class="line">        fontSize = <span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).style.fontSize = fontSize+<span class="string">'px'</span>;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="自定义模板"><a href="#自定义模板" class="headerlink" title="自定义模板"></a>自定义模板</h3><h4 id="强制-在自定义模板的末尾嵌入自定义模板加载完成事件"><a href="#强制-在自定义模板的末尾嵌入自定义模板加载完成事件" class="headerlink" title="[强制]在自定义模板的末尾嵌入自定义模板加载完成事件"></a>[强制]在自定义模板的末尾嵌入自定义模板加载完成事件</h4><p>解释</p>
+<ul>
+<li>特殊情况下，需要对自定义模板进行js操作的，通过侦听<strong>CMSCustomLoaded</strong>事件完成</li>
+<li>基于观察者模式的消息机制，可以有效的避免直接调用方法造成的耦合</li>
+<li>在页面中，直接发送消息，可以在自定义模板生成后立即进行操作显隐，避免页面闪烁现象</li>
+</ul>
+<p>代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"cms_custom"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"wapshow"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"appshow"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--发送cms自定义模板加载完成事件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> e = <span class="built_in">document</span>.createEvent(<span class="string">'HTMLEvents'</span>)</span><br><span class="line">        e.initEvent(<span class="string">'CMSCustomLoaded'</span>,<span class="literal">true</span>,<span class="literal">false</span>)</span><br><span class="line">        <span class="built_in">window</span>.dispatchEvent(e)</span><br><span class="line">    &#125;)()</span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="强制-公共头-lt-head-gt-中嵌入style标签控制自定义模板的默认显隐"><a href="#强制-公共头-lt-head-gt-中嵌入style标签控制自定义模板的默认显隐" class="headerlink" title="[强制]公共头&lt;head&gt;中嵌入style标签控制自定义模板的默认显隐"></a>[强制]公共头<code>&lt;head&gt;</code>中嵌入<code>style</code>标签控制自定义模板的默认显隐</h4><p>代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--默认都是隐藏的--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">rel</span>=<span class="value">'stylesheets'</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="class">.wapshow</span>,</span><br><span class="line">    <span class="class">.appshow</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="强制-公共头-lt-head-gt-中嵌入-lt-script-gt-标签控制自定义模板的默认显隐"><a href="#强制-公共头-lt-head-gt-中嵌入-lt-script-gt-标签控制自定义模板的默认显隐" class="headerlink" title="[强制]公共头&lt;head&gt;中嵌入&lt;script&gt;标签控制自定义模板的默认显隐"></a>[强制]公共头<code>&lt;head&gt;</code>中嵌入<code>&lt;script&gt;</code>标签控制自定义模板的默认显隐</h4><p><strong>依赖appView</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//生成标签</span></span><br><span class="line">    <span class="keyword">var</span> style = <span class="built_in">document</span>.createElement(<span class="string">'style'</span>)</span><br><span class="line">    style.setAttribute(<span class="string">'rel'</span>,<span class="string">'stylesheets'</span>)</span><br><span class="line">    <span class="comment">//根据宿主环境确定显示对象</span></span><br><span class="line">    <span class="keyword">if</span>(appView.wap)&#123;</span><br><span class="line">        style.innerHTML = <span class="string">'.wapshow&#123;display:block;&#125;'</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (appView.ios || appView.android) &#123;</span><br><span class="line">        <span class="comment">//appversion=0的话就按默认处理</span></span><br><span class="line">        <span class="keyword">if</span>(v == <span class="number">0</span>)&#123;</span><br><span class="line">            style.innerHTML = <span class="string">'.appshow&#123;display:block;&#125;'</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">'CMSCustomLoaded'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">document</span>.querySelectorAll(<span class="string">'.appshow[class*=lte]'</span>).length == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">//默认</span></span><br><span class="line">                style.innerHTML = <span class="string">'.appshow&#123;display:block;&#125;'</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//需要判断版本</span></span><br><span class="line">                <span class="keyword">var</span> list = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.appshow[class*=lte]'</span>)</span><br><span class="line">                <span class="keyword">var</span> versions = [<span class="number">0</span>]</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;list.length; i++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(list[i].className.match(<span class="regexp">/lte(\d+)/</span>))</span><br><span class="line">                        versions.push(<span class="built_in">Number</span>(list[i].className.match(<span class="regexp">/lte(\d+)/</span>)[<span class="number">1</span>]))</span><br><span class="line">                &#125;</span><br><span class="line">                versions.sort()</span><br><span class="line">                <span class="keyword">if</span>(versions[versions.length-<span class="number">1</span>] &lt; v)&#123;</span><br><span class="line">                    <span class="keyword">var</span> l = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.appshow:not([class*=lte])'</span>)</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;l.length; i++)&#123;</span><br><span class="line">                        l[i].style.display = <span class="string">'block'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;versions.length-<span class="number">1</span>; j++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(versions[j] &lt; v &amp;&amp; versions[j+<span class="number">1</span>] &gt;= v)&#123;</span><br><span class="line">                        <span class="keyword">var</span> l = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.appshow.lte'</span>+versions[j+<span class="number">1</span>])</span><br><span class="line">                        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;l.length; i++)&#123;</span><br><span class="line">                            l[i].style.display = <span class="string">'block'</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">return</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">    <span class="comment">//插入dom使之生效</span></span><br><span class="line">    <span class="built_in">document</span>.head.appendChild(style)</span><br><span class="line">&#125;)(appView.version)</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="数据挂载规则"><a href="#数据挂载规则" class="headerlink" title="数据挂载规则"></a>数据挂载规则</h2><h4 id="强制-使用data-作为js-hook进行数据处理，禁止使用无意义的css类"><a href="#强制-使用data-作为js-hook进行数据处理，禁止使用无意义的css类" class="headerlink" title="[强制]使用data-* 作为js hook进行数据处理，禁止使用无意义的css类"></a>[强制]使用data-* 作为js hook进行数据处理，禁止使用无意义的css类</h4><h4 id="强制-使用data-cms-模块类型-’模块id’表示cms模块"><a href="#强制-使用data-cms-模块类型-’模块id’表示cms模块" class="headerlink" title="[强制]使用data-cms-[模块类型]=’模块id’表示cms模块"></a>[强制]使用<span style="color:red;">data-cms-[模块类型]=’模块id’</span>表示cms模块</h4><h4 id="强制-使用data-cms-params-json格式字符串-表示模块数据"><a href="#强制-使用data-cms-params-json格式字符串-表示模块数据" class="headerlink" title="[强制]使用data-cms-params=[json格式字符串]表示模块数据"></a>[强制]使用<span style="color:red;">data-cms-params=[json格式字符串]</span>表示模块数据</h4><h4 id="建议-在DOM树的上层定义模块名，靠近叶子节点的dom，直接挂在数据即可，如商品列表中的商品，可直接挂载data-sku-id-”xxx”"><a href="#建议-在DOM树的上层定义模块名，靠近叶子节点的dom，直接挂在数据即可，如商品列表中的商品，可直接挂载data-sku-id-”xxx”" class="headerlink" title="[建议]在DOM树的上层定义模块名，靠近叶子节点的dom，直接挂在数据即可，如商品列表中的商品，可直接挂载data-sku-id=”xxx”"></a>[建议]在DOM树的上层定义模块名，靠近叶子节点的dom，直接挂在数据即可，如商品列表中的商品，可直接挂载data-sku-id=”xxx”</h4><p>示例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"appshow"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--商品详情--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">data-cms-jump</span>=<span class="value">"goods"</span> <span class="attribute">data-cms-params</span>=<span class="value">"&#123;'type':0,'params':'1122450299&amp;No=9133681941&amp;skipType=2'&#125;"</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--金融--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">data-cms-jump</span>=<span class="value">"finance"</span> <span class="attribute">data-cms-params</span>=<span class="value">"&#123;type:'meiyingbaohome'&#125;"</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="comment">//基于不同的宿主环境，对相同的数据结构，可以进行不同的处理，</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//商品的跳转</span></span><br><span class="line">    $(<span class="string">'[data-cms-jump="goods"]'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse($(<span class="keyword">this</span>).data(<span class="string">'cms-href'</span>))</span><br><span class="line">        <span class="comment">//操作bridge跳转</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">//金融产品的跳转</span></span><br><span class="line">    $(<span class="string">'[data-cms-jump="finance"]'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse($(<span class="keyword">this</span>).data(<span class="string">'cms-href'</span>))</span><br><span class="line">        <span class="comment">//操作bridge跳转</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+			
+			
+		
+	
+		
+	
+		
+			
+			
+			
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next"><a href="/2016/02/29/cms自定义模板前端规范/" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2016 gomefe
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.tableofcontents.min.js"></script>
+<script src="/js/tocgenerator.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>

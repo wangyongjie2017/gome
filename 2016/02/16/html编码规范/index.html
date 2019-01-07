@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTML编码规范 | gomefe</title>
+  <meta name="author" content="gomefe">
+  
+  <meta name="description" content="存放规范、教程、分享、demo">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="HTML编码规范"/>
+  <meta property="og:site_name" content="gomefe"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="gomefe" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/">gomefe</a><span class="split"></span><span class="title">HTML编码规范</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2016-02-16</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
+  
+
+  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
+
+	  <!-- content -->
+	  <p><em>本文内容基于<a href="https://github.com/ecomfe/spec/blob/master/html-style-guide.md" target="_blank" rel="external">ecomfe(百度EFE团队)/html</a>规范修改得来</em></p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h2><p>本文档的目标是使HTML代码风格保持一致，并且提供一套html标签语义化指导意见，期望html页面可以很容易被理解和被维护。</p>
+<h2 id="2-代码风格"><a href="#2-代码风格" class="headerlink" title="2 代码风格"></a>2 代码风格</h2><h3 id="2-1-缩进与换行"><a href="#2-1-缩进与换行" class="headerlink" title="2.1 缩进与换行"></a>2.1 缩进与换行</h3><h4 id="强制-使用-4-个空格做为一个缩进层级，不允许使用-2-个空格-或-tab-字符。"><a href="#强制-使用-4-个空格做为一个缩进层级，不允许使用-2-个空格-或-tab-字符。" class="headerlink" title="[强制] 使用 4 个空格做为一个缩进层级，不允许使用 2 个空格 或 tab 字符。"></a>[强制] 使用 <code>4</code> 个空格做为一个缩进层级，不允许使用 <code>2</code> 个空格 或 <code>tab</code> 字符。</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>first<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>second<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="建议-行内标签不换行，块级元素依块内复杂度灵活判断"><a href="#建议-行内标签不换行，块级元素依块内复杂度灵活判断" class="headerlink" title="[建议] 行内标签不换行，块级元素依块内复杂度灵活判断"></a>[建议] 行内标签不换行，块级元素依块内复杂度灵活判断</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">h4</span>&gt;</span>title<span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">em</span>&gt;</span>foo<span class="tag">&lt;/<span class="title">em</span>&gt;</span>bar<span class="tag">&lt;<span class="title">i</span>&gt;</span>icon<span class="tag">&lt;<span class="title">i</span>/&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>解释：</p>
+<p>行内元素换行，可能造成位置的空格出现。</p>
+<h4 id="建议-每行不得超过-120-个字符。"><a href="#建议-每行不得超过-120-个字符。" class="headerlink" title="[建议] 每行不得超过 120 个字符。"></a>[建议] 每行不得超过 <code>120</code> 个字符。</h4><p>解释：</p>
+<p>过长的代码不容易阅读与维护。但是考虑到 HTML 的特殊性，不做硬性要求。</p>
+<h3 id="2-2-命名"><a href="#2-2-命名" class="headerlink" title="2.2 命名"></a>2.2 命名</h3><h4 id="强制-class-必须单词全字母小写，单词间以-分隔。"><a href="#强制-class-必须单词全字母小写，单词间以-分隔。" class="headerlink" title="[强制] class 必须单词全字母小写，单词间以 _ 分隔。"></a>[强制] <code>class</code> 必须单词全字母小写，单词间以 <code>_</code> 分隔。</h4><h4 id="强制-class-必须代表相应模块或部件的内容或功能，不得以样式信息进行命名。"><a href="#强制-class-必须代表相应模块或部件的内容或功能，不得以样式信息进行命名。" class="headerlink" title="[强制] class 必须代表相应模块或部件的内容或功能，不得以样式信息进行命名。"></a>[强制] <code>class</code> 必须代表相应模块或部件的内容或功能，不得以样式信息进行命名。</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"sidebar"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="强制-元素-id-必须保证页面唯一。"><a href="#强制-元素-id-必须保证页面唯一。" class="headerlink" title="[强制] 元素 id 必须保证页面唯一。"></a>[强制] 元素 <code>id</code> 必须保证页面唯一。</h4><p>解释：</p>
+<p>同一个页面中，不同的元素包含相同的 id，不符合 id 的属性含义。并且使用 document.getElementById 时可能导致难以追查的问题。</p>
+<h4 id="建议-id-建议单词全字母小写，单词间以-分隔。同项目必须保持风格一致。"><a href="#建议-id-建议单词全字母小写，单词间以-分隔。同项目必须保持风格一致。" class="headerlink" title="[建议] id 建议单词全字母小写，单词间以 _ 分隔。同项目必须保持风格一致。"></a>[建议] <code>id</code> 建议单词全字母小写，单词间以 <code>_</code> 分隔。同项目必须保持风格一致。</h4><h4 id="建议-id、class-命名，在避免冲突并描述清楚的前提下尽可能短。"><a href="#建议-id、class-命名，在避免冲突并描述清楚的前提下尽可能短。" class="headerlink" title="[建议] id、class 命名，在避免冲突并描述清楚的前提下尽可能短。"></a>[建议] <code>id</code>、<code>class</code> 命名，在避免冲突并描述清楚的前提下尽可能短。</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"navigation"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"comment"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"com"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"author"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"red"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="强制-禁止为了-hook-脚本，创建无样式信息的-class。"><a href="#强制-禁止为了-hook-脚本，创建无样式信息的-class。" class="headerlink" title="[强制] 禁止为了 hook 脚本，创建无样式信息的 class。"></a>[强制] 禁止为了 <code>hook 脚本</code>，创建无样式信息的 <code>class</code>。</h4><p>解释：</p>
+<p>不允许 class 只用于让 JavaScript 选择某些元素，class 应该具有明确的语义和样式。否则容易导致 css class 泛滥。</p>
+<p>使用 id、属性选择作为 hook 是更好的方式。</p>
+<h3 id="2-3-标签"><a href="#2-3-标签" class="headerlink" title="2.3 标签"></a>2.3 标签</h3><h4 id="强制-标签名必须使用小写字母。"><a href="#强制-标签名必须使用小写字母。" class="headerlink" title="[强制] 标签名必须使用小写字母。"></a>[强制] 标签名必须使用小写字母。</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Hello StyleGuide!<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">P</span>&gt;</span>Hello StyleGuide!<span class="tag">&lt;/<span class="title">P</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="强制-对于无需自闭合的标签，不允许自闭合。"><a href="#强制-对于无需自闭合的标签，不允许自闭合。" class="headerlink" title="[强制] 对于无需自闭合的标签，不允许自闭合。"></a>[强制] 对于无需自闭合的标签，不允许自闭合。</h4><p>解释：</p>
+<p>常见无需自闭合标签有input、br、img、hr等。</p>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"title"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"title"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="强制-对-HTML5-中规定允许省略的闭合标签，不允许省略闭合标签。"><a href="#强制-对-HTML5-中规定允许省略的闭合标签，不允许省略闭合标签。" class="headerlink" title="[强制] 对 HTML5 中规定允许省略的闭合标签，不允许省略闭合标签。"></a>[强制] 对 <code>HTML5</code> 中规定允许省略的闭合标签，不允许省略闭合标签。</h4><p>解释：</p>
+<p>对代码体积要求非常严苛的场景，可以例外。比如：第三方页面使用的投放系统。</p>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>first<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>second<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>first</span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>second</span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="强制-标签使用必须符合标签嵌套规则。"><a href="#强制-标签使用必须符合标签嵌套规则。" class="headerlink" title="[强制] 标签使用必须符合标签嵌套规则。"></a>[强制] 标签使用必须符合标签嵌套规则。</h4><p>解释：</p>
+<p>比如 div 不得置于 p 中，tbody 必须置于 table 中。</p>
+<p>详细的标签嵌套规则参见<a href="http://www.cs.tut.fi/~jkorpela/html5.dtd" target="_blank" rel="external">HTML DTD</a>中的 <code>Elements</code> 定义部分。</p>
+<h4 id="建议-在-CSS-可以实现相同需求的情况下不得使用表格进行布局。"><a href="#建议-在-CSS-可以实现相同需求的情况下不得使用表格进行布局。" class="headerlink" title="[建议] 在 CSS 可以实现相同需求的情况下不得使用表格进行布局。"></a>[建议] 在 <code>CSS</code> 可以实现相同需求的情况下不得使用表格进行布局。</h4><p>解释：</p>
+<p>在兼容性允许的情况下应尽量保持语义正确性。对网格对齐和拉伸性有严格要求的场景允许例外，如多列复杂表单。</p>
+<h4 id="建议-标签的使用应尽量简洁，减少不必要的标签。"><a href="#建议-标签的使用应尽量简洁，减少不必要的标签。" class="headerlink" title="[建议] 标签的使用应尽量简洁，减少不必要的标签。"></a>[建议] 标签的使用应尽量简洁，减少不必要的标签。</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">class</span>=<span class="value">"avatar"</span> <span class="attribute">src</span>=<span class="value">"image.png"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"avatar"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"image.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-4-属性"><a href="#2-4-属性" class="headerlink" title="2.4 属性"></a>2.4 属性</h3><h4 id="强制-属性名必须使用小写字母。"><a href="#强制-属性名必须使用小写字母。" class="headerlink" title="[强制] 属性名必须使用小写字母。"></a>[强制] 属性名必须使用小写字母。</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">table</span> <span class="attribute">cellspacing</span>=<span class="value">"0"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">table</span> <span class="attribute">cellSpacing</span>=<span class="value">"0"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="强制-属性值必须用双引号包围。"><a href="#强制-属性值必须用双引号包围。" class="headerlink" title="[强制] 属性值必须用双引号包围。"></a>[强制] 属性值必须用双引号包围。</h4><p>解释：</p>
+<p>不允许使用单引号，不允许不使用引号。</p>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"esl.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">'esl.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">esl.js</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="强制-除href和onerror外，不允许直接使用事件属性"><a href="#强制-除href和onerror外，不允许直接使用事件属性" class="headerlink" title="[强制] 除href和onerror外，不允许直接使用事件属性"></a>[强制] 除href和onerror外，不允许直接使用事件属性</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">src</span>=<span class="value">"esl.js"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="built_in">document</span>).on(<span class="string">"p"</span>,<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//dosth</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">onclick</span>=<span class="value">"dosth()"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="建议-布尔类型的属性，建议不添加属性值。"><a href="#建议-布尔类型的属性，建议不添加属性值。" class="headerlink" title="[建议] 布尔类型的属性，建议不添加属性值。"></a>[建议] 布尔类型的属性，建议不添加属性值。</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">disabled</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span> <span class="attribute">value</span>=<span class="value">"1"</span> <span class="attribute">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="建议-自定义属性建议以-xxx-为前缀，推荐使用-data-。"><a href="#建议-自定义属性建议以-xxx-为前缀，推荐使用-data-。" class="headerlink" title="[建议] 自定义属性建议以 xxx- 为前缀，推荐使用 data-。"></a>[建议] 自定义属性建议以 <code>xxx-</code> 为前缀，推荐使用 <code>data-</code>。</h4><p>解释：</p>
+<p>使用前缀有助于区分自定义属性和标准定义的属性。</p>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ol</span> <span class="attribute">data-ui-type</span>=<span class="value">"Select"</span>&gt;</span><span class="tag">&lt;/<span class="title">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="建议-标签中的属性顺序，按此规则排列，id-gt-class-gt-style-gt-checked等自有属性-gt-data-等自定义属性"><a href="#建议-标签中的属性顺序，按此规则排列，id-gt-class-gt-style-gt-checked等自有属性-gt-data-等自定义属性" class="headerlink" title="[建议] 标签中的属性顺序，按此规则排列，id&gt;class&gt;style&gt;checked等自有属性&gt;data-*等自定义属性"></a>[建议] 标签中的属性顺序，按此规则排列，id&gt;class&gt;style&gt;checked等自有属性&gt;data-*等自定义属性</h4><p>示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">id</span>=<span class="value">"foo"</span> <span class="attribute">class</span>=<span class="value">"bar"</span> <span class="attribute">style</span>=<span class="value">"foobar"</span> <span class="attribute">data-test</span>=<span class="value">"baz"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="3-通用"><a href="#3-通用" class="headerlink" title="3 通用"></a>3 通用</h2><h3 id="3-1-编码"><a href="#3-1-编码" class="headerlink" title="3.1 编码"></a>3.1 编码</h3><h4 id="建议-HTML-文件使用无-BOM-的-UTF-8-编码。"><a href="#建议-HTML-文件使用无-BOM-的-UTF-8-编码。" class="headerlink" title="[建议] HTML 文件使用无 BOM 的 UTF-8 编码。"></a>[建议] <code>HTML</code> 文件使用无 <code>BOM</code> 的 <code>UTF-8</code> 编码。</h4><p>解释：</p>
+<p>UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文件时可能造成不必要的干扰。</p>
+<h3 id="3-2-CSS和JavaScript引入"><a href="#3-2-CSS和JavaScript引入" class="headerlink" title="3.2 CSS和JavaScript引入"></a>3.2 CSS和JavaScript引入</h3><h4 id="强制-引入-CSS-时必须指明-rel-quot-stylesheet-quot-。"><a href="#强制-引入-CSS-时必须指明-rel-quot-stylesheet-quot-。" class="headerlink" title="[强制] 引入 CSS 时必须指明 rel=&quot;stylesheet&quot;。"></a>[强制] 引入 <code>CSS</code> 时必须指明 <code>rel=&quot;stylesheet&quot;</code>。</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"page.css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="建议-无特殊情况，不允许直接在页面中写script和style"><a href="#建议-无特殊情况，不允许直接在页面中写script和style" class="headerlink" title="[建议] 无特殊情况，不允许直接在页面中写script和style"></a>[建议] 无特殊情况，不允许直接在页面中写script和style</h4><p>解释：<br>不允许<code>&lt;style&gt;</code>标签出现<br><code>&lt;script&gt;</code>标签，只允许用来引入js</p>
+<h4 id="建议-引入-CSS-和-JavaScript-时无须指明-type-属性。"><a href="#建议-引入-CSS-和-JavaScript-时无须指明-type-属性。" class="headerlink" title="[建议] 引入 CSS 和 JavaScript 时无须指明 type 属性。"></a>[建议] 引入 <code>CSS</code> 和 <code>JavaScript</code> 时无须指明 <code>type</code> 属性。</h4><p>解释：</p>
+<p><code>text/css</code> 和 <code>text/javascript</code> 是 type 的默认值。</p>
+<h4 id="建议-展现定义放置于外部-CSS-中，行为定义放置于外部-JavaScript-中。"><a href="#建议-展现定义放置于外部-CSS-中，行为定义放置于外部-JavaScript-中。" class="headerlink" title="[建议] 展现定义放置于外部 CSS 中，行为定义放置于外部 JavaScript 中。"></a>[建议] 展现定义放置于外部 <code>CSS</code> 中，行为定义放置于外部 <code>JavaScript</code> 中。</h4><p>解释：</p>
+<p>结构-样式-行为的代码分离，对于提高代码的可阅读性和维护性都有好处。</p>
+<h4 id="建议-在-head-中引入页面需要的所有-CSS-资源。"><a href="#建议-在-head-中引入页面需要的所有-CSS-资源。" class="headerlink" title="[建议] 在 head 中引入页面需要的所有 CSS 资源。"></a>[建议] 在 <code>head</code> 中引入页面需要的所有 <code>CSS</code> 资源。</h4><p>解释：</p>
+<p>在页面渲染的过程中，新的CSS可能导致元素的样式重新计算和绘制，页面闪烁。</p>
+<h4 id="建议-JavaScript-应当放在页面末尾，或采用异步加载。"><a href="#建议-JavaScript-应当放在页面末尾，或采用异步加载。" class="headerlink" title="[建议] JavaScript 应当放在页面末尾，或采用异步加载。"></a>[建议] <code>JavaScript</code> 应当放在页面末尾，或采用异步加载。</h4><p>解释：</p>
+<p>将 script 放在页面中间将阻断页面的渲染。出于性能方面的考虑，如非必要，请遵守此条建议。</p>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- a lot of elements --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"init-behavior.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-图片"><a href="#3-3-图片" class="headerlink" title="3.3 图片"></a>3.3 图片</h3><h4 id="强制-禁止-img-的-src-取值为空。延迟加载的图片也要增加默认的-src。"><a href="#强制-禁止-img-的-src-取值为空。延迟加载的图片也要增加默认的-src。" class="headerlink" title="[强制] 禁止 img 的 src 取值为空。延迟加载的图片也要增加默认的 src。"></a>[强制] 禁止 <code>img</code> 的 <code>src</code> 取值为空。延迟加载的图片也要增加默认的 <code>src</code>。</h4><p>解释：</p>
+<p>src 取值为空，会导致部分浏览器重新加载一次当前页面，参考：<a href="https://developer.yahoo.com/performance/rules.html#emptysrc" target="_blank" rel="external">https://developer.yahoo.com/performance/rules.html#emptysrc</a></p>
+<h2 id="4-国美在线wap前端html语义化标签使用建议"><a href="#4-国美在线wap前端html语义化标签使用建议" class="headerlink" title="4 国美在线wap前端html语义化标签使用建议"></a>4 国美在线wap前端html语义化标签使用建议</h2><p>本规范将html标签大致归类为：</p>
+<ul>
+<li>布局类标签</li>
+<li>有明确功能用途元素类标签</li>
+<li>文本类标签</li>
+<li>特殊标签/万能标签</li>
+</ul>
+<h3 id="4-1-布局类标签"><a href="#4-1-布局类标签" class="headerlink" title="4.1 布局类标签"></a>4.1 布局类标签</h3><p>此类标签一般只具有布局和划分大的功能模块的含义，不代表过于具体的功能</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>语义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nav</td>
+<td>导航</td>
+<td>除公共导航外，其他具备导航性质的区块都可以使用</td>
+</tr>
+<tr>
+<td>header</td>
+<td>头部</td>
+<td>根据产品设计判断特别明显的可以作为头部的区块，使用头部，一般头部只允许有一个</td>
+</tr>
+<tr>
+<td>footer</td>
+<td>底部</td>
+<td>已经被公共模板底部占用</td>
+</tr>
+<tr>
+<td>article</td>
+<td>功能模块</td>
+<td>代表一个大的功能模块，他是最高级的，不能被其他article和section包含</td>
+</tr>
+<tr>
+<td>section</td>
+<td>子模块</td>
+<td>只出现在article中，不能被其他section包含</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>侧边栏</td>
+<td>用于初始时不在页面中显示的区块，比如能滑入滑出的侧边栏</td>
+</tr>
+<tr>
+<td>div</td>
+<td>区块</td>
+<td>一般用在上述标签中，用于划分布局区块，若是不知道使用什么标签布局时，也可以使用div</td>
+</tr>
+<tr>
+<td>ul,li</td>
+<td>无序列表</td>
+<td>大多数使用列表时用ul，li</td>
+</tr>
+<tr>
+<td>ol,li</td>
+<td>有序列表</td>
+<td>有明确的1234序列时使用</td>
+</tr>
+<tr>
+<td>dl,dt,dd</td>
+<td>定义列表</td>
+<td>列表有明显的标题时使用</td>
+</tr>
+<tr>
+<td>table系列</td>
+<td>表格</td>
+<td>一般情况下禁用</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">nav</span>&gt;</span><span class="tag">&lt;/<span class="title">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"list"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"first_module"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"sub_module"</span>&gt;</span><span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">article</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"second_module"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"sub_module"</span>&gt;</span><span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">article</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"third_module"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"sub_module"</span>&gt;</span><span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">article</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">footer</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>布局类标签使用时，需要基于性能优先的原则，比如当前页只有一个模块，不必使用aritcle，section等顶级布局标签</strong></p>
+<p>示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--这个页面只是一个显示列表的页面，则直接使用ul布局即可--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">nav</span>&gt;</span>...<span class="tag">&lt;/<span class="title">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"list"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="5-2-功能元素标签"><a href="#5-2-功能元素标签" class="headerlink" title="5.2 功能元素标签"></a>5.2 功能元素标签</h3><p>这类标签一般具有更加具体的功能性</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>语义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>img</td>
+<td>图片</td>
+<td></td>
+</tr>
+<tr>
+<td>label,input</td>
+<td>输入框</td>
+<td>input的描述必须用label，label只能跟input一起使用</td>
+</tr>
+<tr>
+<td>textarea</td>
+<td>多行输入框</td>
+<td></td>
+</tr>
+<tr>
+<td>button</td>
+<td>按钮</td>
+<td>一般很明显的按钮，推荐使用button标签，按钮有跳转功能时，推荐用a表示标签</td>
+</tr>
+<tr>
+<td>select系列</td>
+<td>选择框</td>
+<td></td>
+</tr>
+<tr>
+<td>canvas</td>
+<td>画布</td>
+<td>逐像素渲染区块，一般用不到</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-3-文本类标签"><a href="#5-3-文本类标签" class="headerlink" title="5.3 文本类标签"></a>5.3 文本类标签</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>语义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h1</td>
+<td>明确的标题</td>
+<td>禁止使用</td>
+</tr>
+<tr>
+<td>h2</td>
+<td>明确的标题</td>
+<td>已经被顶部导航占用</td>
+</tr>
+<tr>
+<td>h3-h6</td>
+<td>明确的标题</td>
+<td>按模块层级使用h3-h6</td>
+</tr>
+<tr>
+<td>p</td>
+<td>一个文本段落</td>
+<td>一行，一段，都可以使用，但一般只能用于文本，不能出现类似用p表示button的情况</td>
+</tr>
+<tr>
+<td>sup</td>
+<td>上标</td>
+<td>用于出现在左上、右上角的小图标、小文本等</td>
+</tr>
+<tr>
+<td>sub</td>
+<td>下标</td>
+<td>用于出现在左下、右下角的小图标、小文本等</td>
+</tr>
+<tr>
+<td>i</td>
+<td>字体图标</td>
+<td>i标签只能用于字体图标，搭配font_icon类或data-icon属性使用</td>
+</tr>
+<tr>
+<td>del</td>
+<td>带有删除线的文本</td>
+<td></td>
+</tr>
+<tr>
+<td>em</td>
+<td>强调</td>
+<td>用于染色类的强调</td>
+</tr>
+<tr>
+<td>strong</td>
+<td>更强的强调</td>
+<td>用于染色或加粗或放大的强调</td>
+</tr>
+<tr>
+<td>small</td>
+<td>用于一段文本中的缩小文本</td>
+</tr>
+<tr>
+<td>q</td>
+<td>引用</td>
+<td></td>
+</tr>
+<tr>
+<td>blockquete</td>
+<td>大段的引用</td>
+<td></td>
+</tr>
+<tr>
+<td>ins</td>
+<td>插入的文本</td>
+<td></td>
+</tr>
+<tr>
+<td>abbr</td>
+<td>缩写的文本</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-4-特殊标签-万能标签"><a href="#5-4-特殊标签-万能标签" class="headerlink" title="5.4 特殊标签/万能标签"></a>5.4 特殊标签/万能标签</h3><p><strong>span</strong></p>
+<p>span标签一般用于表示行内元素，也可用于表示block，inline-block。<br>当上述3类标签都不适合使用时，可以使用span标签。具体使用，根据情况灵活运用。</p>
+<p><strong>a</strong></p>
+<p>需要点击跳转的区块，用a标签包裹。</p>
+<h4 id="建议-当a标签用于跳转时，将a标签置于触发区域之下，并设置为block，不要用a标签包裹触发区域"><a href="#建议-当a标签用于跳转时，将a标签置于触发区域之下，并设置为block，不要用a标签包裹触发区域" class="headerlink" title="[建议]当a标签用于跳转时，将a标签置于触发区域之下，并设置为block，不要用a标签包裹触发区域"></a>[建议]当a标签用于跳转时，将a标签置于触发区域之下，并设置为block，<span style="color:red">不要用a标签包裹触发区域</span></h4><p>示例:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="tag">a</span><span class="class">.react</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> inherit</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"react"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">h3</span>&gt;</span>title<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">p</span>&gt;</span>paragraph<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"react"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span>&gt;</span>text<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>####[建议]在base_new.css中加入了a.react样式，其内容如下，建议当使用a标签做包裹时，使用此样式代替自定义样式</p>
+<h3 id="5-5-其他标签"><a href="#5-5-其他标签" class="headerlink" title="5.5 其他标签"></a>5.5 其他标签</h3><p>以上标签已能涵盖大部分情况，其他标签，一般情况下不建议使用。</p>
+<h2 id="6-模板中的-HTML"><a href="#6-模板中的-HTML" class="headerlink" title="6 模板中的 HTML"></a>6 模板中的 HTML</h2><h4 id="待补充"><a href="#待补充" class="headerlink" title="待补充"></a>待补充</h4>	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+			
+		
+	
+		
+	
+		
+	
+	
+	
+		<li class="prev"><a href="/2016/02/16/css编码规范/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next disabled"><a>next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2016 gomefe
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.tableofcontents.min.js"></script>
+<script src="/js/tocgenerator.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>
